@@ -1,0 +1,4 @@
+[profile.default]
+cancun = true
+[profile.ci.fuzz]
+runs = 10_000

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Function to detect the operating system
+detect_os() {
+    local os
+    if [[ "$(uname)" == "Darwin" ]]; then
+        os="mac"
+    elif [[ "$(uname)" == "Linux" ]]; then
+        os="linux"
+    else
+        os="unknown"
+    fi
+    echo "$os"
+}
+
+# Main script logic
+main() {
+    local os=$(detect_os)
+
+    case $os in
+        mac)
+            ./bin/solc-osx "$@"
+            ;;
+        linux)
+            ./bin/solc-static-linux "$@"
+            ;;
+        *)
+            echo "Unsupported OS"
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"

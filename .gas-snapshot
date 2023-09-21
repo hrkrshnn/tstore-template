@@ -1,0 +1,2 @@
+TestSimpleTStore:testEmptyRead() (gas: 5614)
+TestSimpleTStore:testStore() (gas: 6415)
